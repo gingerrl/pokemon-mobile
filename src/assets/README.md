@@ -1,0 +1,1 @@
+contenido static para el uso en la app.(imagenes, fuentes)

@@ -1,0 +1,1 @@
+creacion de funciones que se puedan reutilizar dentro del proyecto
