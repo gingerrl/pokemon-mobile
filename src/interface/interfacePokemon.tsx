@@ -9,7 +9,7 @@ export type PokemonDetail = {
     name: string,
     img: string,
     moves: any[],
-    sprite: any[],
+    sprites: any[],
     types: any[],
     weight: number
 }

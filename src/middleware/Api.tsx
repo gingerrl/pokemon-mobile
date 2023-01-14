@@ -1,6 +1,6 @@
 import { SimplePokemon } from "../interface/interfacePokemon";
 import { PokemonApi } from '../middleware/HttpService';
-import { urlBase } from "../middleware/UrlBase";
+import { urlBase } from '../middleware/UrlBase';
 
 
 export const pokemonInit = async () => {
@@ -20,6 +20,7 @@ export const pokemonInit = async () => {
 
 export const formatPokemon = async (data: any) => {
     const { moves, sprites, weight, types, id, name } = data
+
     return {
         sprites: [
             sprites?.back_default,
@@ -28,8 +29,8 @@ export const formatPokemon = async (data: any) => {
             sprites?.front_shiny
         ],
         moves:
-            moves.lenght > 10 &&
-            moves.slices(0, 10).map((m: any) => m.move?.name),
+            moves.length > 10 &&
+            moves.map((m: any) => m.move?.name).slice(0,10),
         weight,
         name,
         types: types.map((t: any) => t.type?.name),
@@ -41,6 +42,12 @@ export const formatPokemon = async (data: any) => {
 
 export const Pokemons = async () => {
     const resp = await PokemonApi.get(`${urlBase.INITIAL_URL}pokemon`)
+    return resp
+}
+
+
+export const Pokemon = async (id: string) => {
+    const resp = await PokemonApi.get(`${urlBase.INITIAL_URL}pokemon/${id}`)
     return resp
 }
 
