@@ -1,6 +1,7 @@
-export interface SimplePokemon {
+
+export type SimplePokemon ={
     id:string;
     name: string;
-    picture:  string;
+    img:  string;
     color?:string
 }

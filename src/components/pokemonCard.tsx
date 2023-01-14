@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { SimplePokemon } from '../interface/interfacePokemon'
-import { useNavigation } from '@react-navigation/native'
-
+import { SimplePokemon } from '../interface/interfacePokemon';
+import { useNavigation } from '@react-navigation/native';
+import * as helperGlobal from '../helper/global'
 const windowWidth = Dimensions.get('window').width
 
 interface Props {
@@ -10,21 +10,16 @@ interface Props {
 }
 
 export const PokemonCard = ({ pokemon }: Props) => {
-
-    const [bgColor, setBgColor] = useState('grey')
-
-
     const navigation = useNavigation()
-
-
     return (
 
         <TouchableOpacity
             activeOpacity={0.9}
             onPress={() => navigation.navigate('PokemonScreen',
-                { simplePokemon: pokemon,
-                    color: bgColor
-                
+                {
+                    simplePokemon: pokemon,
+                    color: helperGlobal.colorStatus()
+
                 })
 
             }
@@ -32,13 +27,14 @@ export const PokemonCard = ({ pokemon }: Props) => {
             <View style={{
                 ...styles.cardContainer,
                 width: windowWidth * 0.4,
-                backgroundColor: bgColor
+                backgroundColor: helperGlobal.colorStatus()
             }}>
 
                 <View>
                     <Text style={styles.name}>
                         {pokemon.name}
-                        {'\n#' + pokemon.id}
+
+                        {/* {'\n#' + helperGlobal.getUrl(pokemon.id)} */}
 
                     </Text>
 
@@ -54,7 +50,6 @@ export const PokemonCard = ({ pokemon }: Props) => {
 const styles = StyleSheet.create({
     cardContainer: {
         marginHorizontal: 10,
-        // backgroundColor: 'grey',
         height: 120,
         width: 160,
         marginBottom: 25,
@@ -78,5 +73,5 @@ const styles = StyleSheet.create({
         left: 10
     },
 
-   
+
 })
