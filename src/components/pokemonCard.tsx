@@ -1,15 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { SimplePokemon } from '../interface/interfacePokemon';
+import { SimplePokemon, PokemonDetail } from '../interface/interfacePokemon';
 import { useNavigation } from '@react-navigation/native';
 import * as helperGlobal from '../helper/global'
 const windowWidth = Dimensions.get('window').width
 
 interface Props {
-    pokemon: SimplePokemon
+    pokemon: PokemonDetail
 }
-
-export const PokemonCard = ({ pokemon }: Props) => {
+export const PokemonCard = ({ pokemon }:Props ) => {
     const navigation = useNavigation()
     return (
 
@@ -34,13 +33,17 @@ export const PokemonCard = ({ pokemon }: Props) => {
                     <Text style={styles.name}>
                         {pokemon.name}
 
-                        {/* {'\n#' + helperGlobal.getUrl(pokemon.id)} */}
+                        {'\n#' + pokemon.id}
 
                     </Text>
 
 
                 </View>
 
+                <Image
+                    style={styles.pokemonImage}
+                    source={{ uri: pokemon.img }}
+                />
             </View>
 
         </TouchableOpacity>
@@ -71,6 +74,13 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         top: 20,
         left: 10
+    },
+    pokemonImage: {
+        width: 120,
+        height: 120,
+        position: 'absolute',
+        right: -8,
+        bottom: -5
     },
 
 
