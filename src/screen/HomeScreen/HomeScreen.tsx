@@ -14,7 +14,9 @@ export const HomeScreen = () => {
   useEffect(() => {
     async function getPokemon() {
       const listPokemon = await pokemonInit()
-      setPokemonsList(listPokemon)
+      if( listPokemon?.length > 0){
+        setPokemonsList(listPokemon)
+      }
     }
     getPokemon()
   }, [])

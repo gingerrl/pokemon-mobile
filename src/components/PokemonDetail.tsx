@@ -18,7 +18,7 @@ export const PokemonDetails = ({ pokemon }: Props) => {
         >
             <View style={{
                 ...styles.container,
-                marginTop: 370
+                marginTop: 270
             }}>
                 <Text style={styles.title}>Types</Text>
 
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 20,
         fontWeight: "bold",
-        marginTop: 20
+        marginTop: 10
     },
     regularText: {
         fontSize: 19

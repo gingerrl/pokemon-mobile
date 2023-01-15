@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
 import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { SimplePokemon, PokemonDetail } from '../interface/interfacePokemon';
+import { PokemonDetail } from '../interface/interfacePokemon';
 import { useNavigation } from '@react-navigation/native';
 import * as helperGlobal from '../helper/global'
 const windowWidth = Dimensions.get('window').width

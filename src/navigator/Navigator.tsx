@@ -1,7 +1,6 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Nav1 } from './Navigator1';
-import { Platform } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import { Nav2Screen } from './Navigator2';

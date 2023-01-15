@@ -1,6 +1,6 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React from 'react'
-import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { PokemonDetails } from '../../components/PokemonDetail';
 import { RootStackParams } from '../../navigator/Navigator1';
@@ -37,40 +37,28 @@ export const PokemonScreen = ({ navigation, route }: Props) => {
         </TouchableOpacity>
 
 
+          <Image
+             source={{ uri: simplePokemon.img }}
+             style={styles.pokemonImage}          
+          />
       </View>
       <PokemonDetails pokemon={simplePokemon} />
 
     </View>
-
-
-
-
   )
 }
 
 const styles = StyleSheet.create({
   headerContainer: {
-    height: 370,
+    height: 270,
     zIndex: 999,
     alignItems: "center",
-    borderBottomRightRadius: 1000,
-    borderBottomLeftRadius: 1000
+    borderBottomRightRadius: 900,
+    borderBottomLeftRadius: 800
   },
   backButton: {
     position: 'absolute',
     left: 20
-  },
-  pokemonName: {
-    color: 'white',
-    fontSize: 40,
-    alignSelf: 'flex-start',
-    left: 20
-  },
-  pokeball: {
-    width: 250,
-    height: 250,
-    bottom: -20,
-    opacity: 0.7
   },
   pokemonImage: {
     width: 250,
@@ -78,11 +66,4 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: -15
   },
-  loadingIndicator: {
-    flex: 1,
-    // height:250,
-    justifyContent: 'center',
-    alignItems: 'center'
-
-  }
 });
